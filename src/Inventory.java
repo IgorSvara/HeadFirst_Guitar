@@ -1,9 +1,8 @@
-import java.sql.Array;
 import java.util.*;
 
 public class Inventory {
 
-    private List<Guitar> guitars;
+    final private List<Guitar> guitars;
 
     public Inventory() {
         guitars = new ArrayList<>();

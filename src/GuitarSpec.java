@@ -1,9 +1,9 @@
 public class GuitarSpec {
-    private Builder builder;
-    private String model;
-    private Type type;
-    private Wood backWood;
-    private Wood topWood;
+    private final Builder builder;
+    private final String model;
+    private final Type type;
+    private final Wood backWood;
+    private final Wood topWood;
 
     public GuitarSpec(Builder builder, String model, Type type, Wood backWood, Wood topWood) {
         this.builder = builder;
@@ -45,7 +45,8 @@ public class GuitarSpec {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) return false;
+        if (obj.getClass() != GuitarSpec.class) return false;
+
         GuitarSpec gs = (GuitarSpec) obj;
         if (this.getBuilder() != gs.getBuilder()) return false;
         if (!this.getModel().equals(gs.getModel())) return false;

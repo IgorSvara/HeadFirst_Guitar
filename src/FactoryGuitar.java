@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class FactoryGuitar {
 
     public Guitar buildGuitar(Builder builder, String model, Type type,
