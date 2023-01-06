@@ -1,12 +1,20 @@
-import java.util.List;
+import org.jetbrains.annotations.NotNull;
 
 public class FactoryGuitar {
 
-    public Guitar buildGuitar(Builder builder, String model, Type type,
+    public static Guitar buildGuitar(Builder builder, String model, Type type,
                               Wood woodB, Wood woodT) {
 
         GuitarSpec specs = new GuitarSpec(builder, model, type, woodB, woodT);
         return new Guitar("", 0, specs);
+
+    }
+    public static @NotNull Guitar buildGuitar(String serialN, double price, Builder builder,
+                                              String model, Type type,
+                                              Wood woodB, Wood woodT) {
+
+        GuitarSpec specs = new GuitarSpec(builder, model, type, woodB, woodT);
+        return new Guitar(serialN, price, specs);
 
     }
 }

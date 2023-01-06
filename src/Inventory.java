@@ -9,10 +9,10 @@ public class Inventory {
     }
 
     public void addGuitar(String serialN, double price, Builder builder,
-                          String model, Type type, Wood bWood, Wood fWood) {
+                          String model, Type type, Wood woodB, Wood woodT) {
 
-        GuitarSpec gs = new GuitarSpec(builder, model, type, bWood, fWood);
-        Guitar g = new Guitar(serialN, price, gs);
+        Guitar g = FactoryGuitar.buildGuitar(serialN, price, builder,
+                model, type, woodB, woodT);
 
         guitars.add(g);
     }
@@ -25,13 +25,14 @@ public class Inventory {
         return null;
     }
 
-    public Guitar search(Guitar gSearch) {
+    public List<Guitar> search(Guitar gSearch) {
+        List<Guitar> matchingGuitars = new ArrayList<>();
         for(Guitar g : guitars) {
             if (gSearch.getSpec().equals(g.getSpec())) {
-                return g;
+                matchingGuitars.add(g);
             }
         }
-        return null;
+        return matchingGuitars;
     }
 }
 

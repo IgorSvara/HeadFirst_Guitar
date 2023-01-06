@@ -1,5 +1,5 @@
 public class GuitarSpec {
-    private final Builder builder;
+    private Builder builder;
     private final String model;
     private final Type type;
     private final Wood backWood;
@@ -53,6 +53,7 @@ public class GuitarSpec {
         if (this.getType() != gs.getType()) return false;
         if (this.getTopWood() != gs.getTopWood()) return false;
         if (this.getBackWood() != gs.getBackWood()) return false;
+
         return true;
     }
 }
