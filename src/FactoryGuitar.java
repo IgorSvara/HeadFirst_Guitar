@@ -5,7 +5,7 @@ public class FactoryGuitar {
     public static Guitar buildGuitar(Builder builder, String model, Type type,
                               Wood woodB, Wood woodT) {
 
-        GuitarSpec specs = new GuitarSpec(builder, model, type, woodB, woodT);
+        GuitarSpec specs = new GuitarSpec(builder, model, type, woodB, woodT, 6);
         return new Guitar("", 0, specs);
 
     }
@@ -13,7 +13,7 @@ public class FactoryGuitar {
                                               String model, Type type,
                                               Wood woodB, Wood woodT) {
 
-        GuitarSpec specs = new GuitarSpec(builder, model, type, woodB, woodT);
+        GuitarSpec specs = new GuitarSpec(builder, model, type, woodB, woodT, 6);
         return new Guitar(serialN, price, specs);
 
     }

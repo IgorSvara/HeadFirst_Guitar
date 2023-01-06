@@ -8,15 +8,11 @@ public class Inventory {
         guitars = new ArrayList<>();
     }
 
-    public void addGuitar(String serialN, double price, Builder builder,
-                          String model, Type type, Wood woodB, Wood woodT) {
+    public void addGuitar(Guitar newGuitar) {
 
-        Guitar g = FactoryGuitar.buildGuitar(serialN, price, builder,
-                model, type, woodB, woodT);
-
-        guitars.add(g);
+        guitars.add(newGuitar);
     }
-    public Guitar getGuitar(String  serialN) {
+    public Guitar searchBySerialNum(String  serialN) {
         for(Guitar g : guitars) {
             if (serialN.equals(g.getSerialNumber())) {
                 return g;
@@ -25,10 +21,10 @@ public class Inventory {
         return null;
     }
 
-    public List<Guitar> search(Guitar gSearch) {
+    public List<Guitar> searchBySpec(GuitarSpec searchSpec) {
         List<Guitar> matchingGuitars = new ArrayList<>();
         for(Guitar g : guitars) {
-            if (gSearch.getSpec().equals(g.getSpec())) {
+            if (searchSpec.equals(g.getSpec())) {
                 matchingGuitars.add(g);
             }
         }
